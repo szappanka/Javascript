@@ -1,0 +1,55 @@
+<%- include ('header') -%>
+<%- include ('navbar') -%>
+
+<br />
+<div class="container">
+    <div class="row">
+
+        <div class="col-0 col-sm-0 col-md-3"></div>
+
+        <div class="col-12 col-sm-12 col-md-6">
+
+            <div class="card text-white bg-secondary" style="margin-bottom: 10pt;">
+                <div class="card-body" style="font-size:small;">
+                    <h5 class="card-title d-flex justify-content-between" style="font-weight: bold;"><%= user.name %><i
+                            class="fas fa-male"></i></h5>
+                    <p class="card-text"><%= user.email %></p>
+                    <p class="card-text"><%= user.phonenum %></p>
+                    <p class="card-text"><%= user.city %></p>
+                    <a href="/profile/<%= user._id%>/newpost" class="btn btn-light">New post</a>
+                </div>
+            </div>
+
+            <% userPost.forEach(function(valami){ %>
+
+            <div class="card" style="margin-bottom: 10pt;">
+                <div class="card-body" style="font-size:small;">
+                    <h5 class="card-title d-flex justify-content-between"><%= valami.date %>
+                        <div style="font-size: 1rem;">
+                            <a href="/profile/<%= user._id%>/del/<%= valami._id %>" class="far fa-trash-alt fa-lg" style="margin: 2pt;"></a>
+                            <a href="/profile/<%= user._id%>/edit/<%= valami._id %>" class="far fa-edit fa-lg" style="margin: 2pt;"></a>
+                            <% if (valami._helper != null) { %>
+                            <i class="fas fa-circle fa-lg"></i>
+                            <% } %>
+                            <% if (valami._helper == null) { %>
+                                <i class="far fa-circle fa-lg"></i>
+                            <% } %>
+                        </div>
+                    </h5>
+                    <p class="card-text"><%= valami.list %></p>
+                    <p class="card-text">U.i.: <%= valami.ps %></p>
+                </div>
+                <% if (valami._helper != null) { %>
+                <div class="card-footer">
+                    <p>Elfogadva: <%= valami._helper.name %>, <%= valami._helper.phonenum %></p>
+                </div>
+                <% } %>
+            </div>
+
+            <% }); %>
+
+        </div>
+    </div>
+</div>
+
+<%- include ('footer') -%>

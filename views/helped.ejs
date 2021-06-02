@@ -1,0 +1,32 @@
+<%- include ('header') -%>
+<%- include ('navbar') -%>
+
+<br />
+<div class="container">
+    <div class="row">
+
+        <div class="col-0 col-sm-0 col-md-3"></div>
+
+        <div class="col-12 col-sm-12 col-md-6">
+
+            <% help.forEach(function(valami){ %>
+            <div class="card" style="margin-bottom: 10pt;">
+                <div class="card-body" style="font-size:small;">
+                    <h5><%= valami._writer ? valami._writer.name : 'Nincs név' %> <%= valami._writer ? valami._writer.phonenum : '' %></h5>
+                    <h6><%= valami._writer ? valami._writer.city : '' %>, <%= valami.date %></h6>
+                    
+                    <p class="card-text"><%= valami.list %></p>
+                    <p class="card-text">U.i.: <%= valami.ps %></p>
+                </div>
+            </div>
+            <% }); %>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<%- include ('footer') -%>

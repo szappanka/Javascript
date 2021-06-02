@@ -1,0 +1,42 @@
+<%- include ('header') -%>
+<%- include ('navbar') -%>
+
+<div class="container ">
+    <div class="row">
+
+        <div class="col-0 col-sm-0 col-md-3"></div>
+
+        <div class="col-12 col-sm-12 col-md-6">
+
+            <% news.forEach(function(x){ %>
+            <div class="card text-white bg-secondary" style="margin: 10pt;">
+                <div class="card-body">
+                    <h5 class="card-title"><%= x._writer ? x._writer.name : 'Nincs név' %>, <%= x._writer ? x._writer.city : '' %></h5> 
+                    <h6><%= x.date %></h6>
+                    <p class="card-text"><%= x.list %></p>
+
+                    <p class="card-text"><%= x.ps %></p>
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            style="background-color: transparent; border: transparent;">
+                            Elfogadom
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="max-width: 50%;">
+                            <p style="margin-left: 5pt; font-size: small; max-width: 100%;">Ha a "Megerősítés"
+                                gombra nyom, automatikusan
+                                megosztják egymással a telefonszámaikat. Biztos ebben?</p>
+                            <a class="btn btn-secondary" href="/posts/<%= x._id %>"
+                                style="margin-left: 5pt; font-size: small;">Megerősítés</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+
+        </div>
+    </div>
+</div>
+
+<%- include ('footer') -%>

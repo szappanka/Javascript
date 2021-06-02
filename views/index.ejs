@@ -1,0 +1,91 @@
+<%- include ('header') -%>
+
+<br />
+
+<div class="container">
+  <div class="row">
+    <div class="col-0 col-sm-0 col-md-3"></div>
+
+    <!-- Bejelentkező felület -->
+    <div class="col-12 col-sm-12 col-md-6">
+      <div style="text-align: center;">
+        <p style="font-weight: bold;">Szeretnél segíteni a koronavírus idején? Vagy esetleg te szorulsz segítségre?
+          Akkor csatlakozz
+          közösségünkhöz és találd meg a hősöd, vagy segíts a körülötted lévőkön.
+        </p>
+        <h3>Belépés</h3>
+      </div>
+      
+      <form method="POST" style="text-align: center;">
+        <div class="form-group">
+            <input type="text" class="form-control" id="email" name="email"
+            placeholder="E-mail" >
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" id="password" name="password"
+               placeholder="Jelszó">
+        </div>
+        <% if (typeof error !== 'undefined') { %>
+          <div class="alert alert-danger" style="margin: 5pt;"><%= error %></div>
+        <% } %>
+        <br />
+
+        <input type="submit" class="btn btn-primary" value="Belépés"/>
+
+     </form>
+     
+<!--
+      <div style="text-align: center;">
+        <input type="email" style="margin: 5pt; width: 50%;" placeholder="E-mail cím">
+      </div>
+      <div style="text-align: center;">
+        <input type="password" style="margin: 5pt; width: 50%" name="password" placeholder="Jelszó">
+      </div>
+      <div style="text-align: center;">
+        <a class="btn btn-secondary" href="\menu" style="margin-left: 5pt;">Belépés</a>
+      </div>
+      
+      // Elfelejtett jelszó e-mail megadással
+      <div style="text-align: center;">
+
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter">
+          Elfelejtett jelszó
+        </button>
+        
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Elfelejtetted a jelszavad?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div style="text-align: center;">
+                  <p style="width: 100%;">Add meg az e-mailcímed és elküldjük neked</p>
+                  <input type="email" style="margin: 5pt; width: 50%;" placeholder="E-mail cím">
+                </div>
+                <div>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Küld</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      -->
+
+        <hr style="width: 50%;">
+        <!-- Regiszráció -->
+        <div style="text-align: center;">
+          <a class="btn btn-secondary" href="\register" style="margin-left: 5pt;">Regisztrálás</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <%- include ('footer') -%>
